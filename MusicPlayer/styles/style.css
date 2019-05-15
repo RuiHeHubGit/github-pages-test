@@ -1,0 +1,229 @@
+﻿body
+{
+    font-family: "Helvetica Neue","Hiragino Sans GB","Segoe UI","Microsoft Yahei","微软雅黑",Tahoma,Arial,STHeiti,sans-serif;
+    _font-family: Tahoma,Arial,Helvetica,STHeiti,sans-serif;
+}
+@-webkit-keyframes anim_turn
+{
+    from
+    {
+        -webkit-transform: rotateZ(0deg);
+    }
+    to
+    {
+        -webkit-transform: rotateZ(360deg);
+    }
+}
+
+#panel{
+    top: 10px;
+    width: 400px;
+    height: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 2px;
+    border-color: #555;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 10px #888888;
+    background-color: #FBFBFB;
+    position: relative;
+}
+
+#cd{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.head_play{
+    width: 140px;
+    height: 140px;
+    border-radius: 150px 150px 150px 150px;
+    background: url("../images/head.jpg");
+    background-size: 140px 140px;
+    -webkit-animation: anim_turn 10s infinite linear;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.head_pause{
+    width: 140px;
+    height: 140px;
+    border-radius: 150px 150px 150px 150px;
+    background: url("../images/head.jpg");
+    background-size: 140px 140px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+#cd_mask{
+    width: 150px;
+    height: 150px;
+    border-radius: 5px 0px 0px 0px;
+    background: url("../images/playerMask.png");
+    background-size: 180px 180px;
+    background-position: -15px -15px;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#btn_bg{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px 25px 25px 25px;
+    background: url("../images/playCtl.png") no-repeat;
+    background-position: -132px -2px;
+    background-size: 175px 45px;
+    opacity: 0;
+}
+
+.btn_play{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px 25px 25px 25px;
+    background: url("../images/playCtl.png");
+    background-position: -5px -2px;
+    background-size: 175px 45px;
+}
+.btn_pause{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px 25px 25px 25px;
+    background: url("../images/playCtl.png");
+    background-position: -68px -2px;
+    background-size: 175px 45px;
+}
+
+#song_info{
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    left: 175px;
+    top: 20px;
+}
+
+#song_name{
+    width: auto;
+    height: 20px;
+}
+#song_singer{
+    width: 200px;
+    height: 20px;
+    margin-top: 5px;
+    white-space:normal;
+    color: #4e6967;
+    word-break: break-all; /* 不换行 */
+    overflow:hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;
+}
+
+#vol{
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    left: 250px;
+    top: 75px;
+}
+
+.btn_vol_up{
+    width: 20px;
+    height: 20px;
+    background: url("../images/volume_up.png");
+    background-size: 100% 100%;
+}
+.btn_vol_off{
+    width: 20px;
+    height: 20px;
+    background: url("../images/volume_off.png");
+    background-size: 100% 100%;
+}
+
+#btn_muted:hover{
+    background-color: #b72053;
+}
+
+#vol_bar{
+    width: 100px;
+    height: 10px;
+    margin-top: -15px;
+    background-color: #b4b1b7;
+    margin-left: 25px;
+}
+
+#vol_bar_pos{
+    width: 100px;
+    height: 10px;
+    background-color: #b72053;
+}
+
+#time{
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    left: 175px;
+    top: 95px;
+}
+
+#curTime{
+    text-align: left;
+}
+#seekTime{
+    margin-top: -18px;
+    text-align: center;
+}
+#allTime{
+    margin-top: -20px;
+    text-align: right;
+}
+
+#seek_bar{
+    width: 200px;
+    height: 20px;
+    border: 1px solid #aeaeae;
+    position: absolute;
+    left: 175px;
+    top: 120px;
+}
+#seek_bar_bg{
+    width: 198px;
+    height: 18px;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    background-color: #888888;
+}
+
+#seek_bar_pos{
+    width: 0px;
+    height: 18px;
+    background-color: #b72053;
+}
+
+#lrc{
+    width: 400px;
+    height: 75px;
+    position: absolute;
+    background-color: #efefef;
+    border-radius: 0px 0px 5px 5px;
+    top: 145px;
+    left: -5px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.lrcText_a{
+    margin-top: 5px;
+    font-size: 16px;
+    color: #000;
+}
+.lrcText_b{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #959595;
+}

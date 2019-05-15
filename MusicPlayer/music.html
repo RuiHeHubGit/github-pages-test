@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="styles/music.css" type="text/css" rel="stylesheet">
+    <link href="styles/pageLoading.css"  type="text/css" rel="stylesheet"/>
+    <script src="script/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="script/loadingUI.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script/music.js" type="text/javascript"></script>
+    <script src="script/user.js" type="text/javascript"></script>
+    <script>
+        window.onload = function () {
+	    loadingUI(false);
+            startMusicPlayer();
+            initializeUser();
+        }
+    </script>
+    <title>微客音乐</title>
+</head>
+<body>
+
+<div id="page-loading">
+    <div id="loading-panel">
+        <div class="loading-panel-dot" id="loading-panel-dot-a">a</div>
+        <div class="loading-panel-dot" id="loading-panel-dot-b">b</div>
+        <div class="loading-panel-dot" id="loading-panel-dot-c">c</div>
+    </div>
+</div>
+
+<div id="top-bar" div>
+    <span>云音乐</span>
+    <div id="top-user-panel">
+        <div id="register-btn" >注册</div>
+        <div id="login-btn" >登录</div>
+        <div id="user" style="display: none">
+            <div id="user-icon"></div>
+            <div id="user-name" title="sfsfsfa大家分类分级的绿色减肥；收款方；是">sfsfsfa大家分类分级的绿色减肥；收款方；是</div>
+            <div id="user-btn">
+                <div id="user-btn-icon"></div>
+                <div id="user-select">
+                    <a>
+                        <div>个人信息</div>
+                    </a>
+                    <a>
+                        <div>退出登录</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<audio id="player-audio">
+</audio>
+
+<div id="main-panel">
+    <div id="music-panel" onselectstart="return false">
+        <div id="topPanel">
+            <div id="classify-panel">
+                <div class="classify-item" data=1>新歌榜</div>
+                <div class="classify-item" data=2>热歌榜</div>
+                <div class="classify-item" data=11>摇滚榜</div>
+                <div class="classify-item" data=12>爵士</div>
+                <div class="classify-item" data=16>流行</div>
+                <div class="classify-item" data=21>欧美金曲榜</div>
+                <div class="classify-item" data=22>经典老歌榜</div>
+                <div class="classify-item" data=23>情歌对唱榜</div>
+                <div class="classify-item" data=24>影视金曲榜</div>
+                <div class="classify-item" data=25>网络歌曲榜</div>
+            </div>
+            <div id="search-panel">
+                <div id="search-panel-btn">搜索</div>
+                <div>
+                    <input type="text" id="search-input">
+                </div>
+            </div>
+        </div>
+
+        <div id="music-content">
+            <div id="music-list">
+                <div id="music-side">
+                    <div id="music-classify">
+                        <div id="recommend">推荐</div>
+                        <div class="music-classify-item">随便听听</div>
+                        <div class="music-classify-item">私人FM</div>
+                        <div class="music-classify-item">好友推荐</div>
+                        <div id="me">我的音乐</div>
+                        <div class="music-classify-item">播放纪录</div>
+                        <div class="music-classify-item">我喜欢的歌曲</div>
+                    </div>
+                </div>
+
+                <div id="music-right">
+                    <div id="list-head">
+                        <table id="table" cellspacing="0">
+
+                        </table>
+                    </div>
+                    <div  id="list-panel">
+                        <div id="list-content">
+                            <div id="playing-item-bk">
+                                <div id="playing-item-icon"></div>
+                            </div>
+                            <table  cellspacing="0" id="list-table">
+                                <thead>
+                                <th class="td-id"></th>
+                                <th class="td-operate">操作</th>
+                                <th class="td-name">音乐标题</th>
+                                <th class="td-singer">歌手</th>
+                                <th class="td-special">专辑</th>
+                                </thead>
+                                <tbody id="list-tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="scroll-bar">
+                            <div id="scroll-btn"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="music-control">
+
+            <div id="control-left">
+                <div id="music-poster">
+                    <div id="poster-bkImg">
+                        <img id="poster-img" src="">
+                    </div>
+                    <div id="poster-mask">
+                        <div id="poster-play-btn-bk">
+                            <div id="poster-play-btn" class="poster-btn-play"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="control-right">
+                <div id="music-ctl-panel">
+                    <div id="music-info">
+                        <div id="music-singer"></div>
+                        <div id="music-name"></div>
+                    </div>
+
+                    <div id="control-panel">
+                        <div id="btn-lastSong" title="上一首"></div>
+                        <div id="btn-playOrPause" class="btn-play-music" title="播放"></div>
+                        <div id="btn-nextSong" title="下一首"></div>
+                        <div id="text-currentTime" title="当前时间">0:00</div>
+                        <div id="progress-music" class="progress" title="进度条">
+                            <div class="progress-backBar"></div>
+                            <div class="progress-load"></div>
+                            <div class="progress-pace"></div>
+                            <div class="progress-btn"></div>
+                        </div>
+                        <div id="text-duration" title="总时间">0:00</div>
+                        <div id="btn-volIcon" class="btn-volume-on" title="静音"></div>
+                        <div id="progress-vol" class="progress" title="音量">
+                            <div class="progress-backBar"></div>
+                            <div class="progress-load"></div>
+                            <div class="progress-pace"></div>
+                            <div class="progress-btn"></div>
+                        </div>
+                        <div id="btn-setCycleMode" class="list_play_mode_ordinal" title="顺序播放"></div>
+                        <div id="btn-btn-show-lyric" title="显示歌词"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="foot">
+    <div id="content">
+        <span>微客©2016</span>
+        <a href="#">建议反馈</a>
+        <span>邮箱：</span>
+        <span>1366401209@qq.com</span>
+        <span>成都东软学院 </span>
+        <span> neusoft</span>
+    </div>
+</div>
+
+<div class="login-register-dialog-shade">
+    <div id="login-dialog">
+        <div class="dialog-title">登 录</div>
+        <div class="col">
+            <div>用户名：</div>
+            <input id="input-user-name" type="text">
+            <div class="login-errorInfo" id="login-name-pt"></div>
+        </div>
+
+        <div class="col">
+            <div>密码：</div>
+            <input id="password" type="text">
+            <div class="login-errorInfo" id="login-pw-pt"></div>
+        </div>
+
+        <div class="btn-col">
+            <span id="login-sumbit-btn"  class="dialog-confirm-btn">登录</span>
+            <span id="login-cancel-btn" class="dialog-cancel-btn">取消</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="login-register-dialog-shade">
+    <div id="register-dialog">
+        <div class="dialog-title">注 册</div>
+        <div class="col">
+            <div>用户名：</div>
+            <input id="register-user-name" type="text">
+            <div class="register-errorInfo" id="register-name-pt"></div>
+        </div>
+
+        <div class="col">
+            <div>邮箱：</div>
+            <input id="register-email" type="text">
+            <div class="register-errorInfo" id="register-email-pt"></div>
+        </div>
+
+        <div class="col">
+            <div>密码：</div>
+            <input id="new-password" type="text">
+            <div class="register-errorInfo" id="register-pw-pt"></div>
+        </div>
+
+        <div class="col">
+            <div>确认密码：</div>
+            <input id="cf-password" type="text">
+            <div class="register-errorInfo" id="cf-register-pw-pt"></div>
+        </div>
+
+        <div class="btn-col">
+            <span id="register-sumbit-btn"  class="dialog-confirm-btn">注册</span>
+            <span id="register-cancel-btn" class="dialog-cancel-btn">取消</span>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+#page-loading
+{
+    width: 200Px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loading-panel{
+    position: fixed;
+    z-index: 219991111;
+    top: 150px;
+    width: 200px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.70);
+    box-shadow: 0 0 20px #000;
+}
+
+@-webkit-keyframes animation_opacity
+{
+    0%{opacity:.2;}
+    40%{opacity:.4;}
+    45%{opacity:.8;}
+    50%{opacity:1;}
+    55%{opacity:1;}
+    60%{opacity:.6;}
+    100%{opacity:.2;}
+
+}
+
+.loading-panel-dot
+{
+    float: left;
+    margin-left: 25px;
+    margin-top: 35px;
+    width: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    background-color: #cfcfcf;
+    box-shadow: 0 0 5px #eee;
+    color: rgba(255, 255, 255, 0);
+}
+#loading-panel-dot-a
+{
+    animation-name: animation_opacity;
+    animation-duration: 1.2s;
+    animation-timing-function: infinite;
+    animation-direction: alternate;
+    animation-iteration-count: 100;
+    animation-delay: 0s;
+}
+#loading-panel-dot-b
+{
+    animation-name: animation_opacity;
+    animation-duration: 1.2s;
+    animation-timing-function: infinite;
+    animation-direction: alternate;
+    animation-iteration-count: 100;
+    animation-delay: .4s;
+}
+#loading-panel-dot-c
+{
+    animation-name: animation_opacity;
+    animation-duration: 1.2s;
+    animation-timing-function: infinite;
+    animation-direction: alternate;
+    animation-iteration-count: 100;
+    animation-delay: .8s;
+}

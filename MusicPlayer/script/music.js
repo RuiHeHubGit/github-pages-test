@@ -56,7 +56,7 @@ function startMusicPlayer(){
         $.ajax({
             type: "get",
             async: false,
-            url: "http://s.music.163.com/search/get?type=1&s=" + searchText + "&limit=300",
+            url: "https://s.music.163.com/search/get?type=1&s=" + searchText + "&limit=300",
             dataType: "jsonp",
             success: function(result){
                 setMusicList(result);
@@ -88,7 +88,7 @@ function startMusicPlayer(){
         $.ajax({
             type: "get",
             async: false,
-            url: "http://s.music.163.com/search/get?type=1&s=" + searchText + "&limit=2",
+            url: "https://s.music.163.com/search/get?type=1&s=" + searchText + "&limit=2",
             dataType: "jsonp",
             callback: null,
             success: function(json){
@@ -111,7 +111,7 @@ function startMusicPlayer(){
         $.ajax({
             type: "get",
             async: false,
-            url: "http://tingapi.ting.baidu.com/v1/restserver/ting?format=json&callback=&from=webapp_music&method=baidu.ting.billboard.billList&type="+type+"&size=20&offset=0",
+            url: "https://tingapi.ting.baidu.com/v1/restserver/ting?format=json&callback=&from=webapp_music&method=baidu.ting.billboard.billList&type="+type+"&size=20&offset=0",
             dataType: "jsonp",
             success: function(json){
                 saveBaiBuList(json);
